@@ -1,16 +1,21 @@
-// Конфиг Firebase (см. README). Пока значения YOUR_… — сайт работает в демо-режиме без входа.
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyAf86pqlgxKdx9FBaxHF7q_Tf0uV-SXBiE",
+  authDomain: "birgasite-uz.firebaseapp.com",
+  projectId: "birgasite-uz",
+  storageBucket: "birgasite-uz.firebasestorage.app",
+  messagingSenderId: "280369824408",
+  appId: "1:280369824408:web:c6c957067c2d88153cc6ed",
+  measurementId: "G-09MZ2BCFH8"
 };
-// Адрес вашего ИИ-прокси (Cloudflare Worker из ai-worker.js). Пусто = встроенный базовый режим.
-const BIRGA_AI_URL = "";
-window.FB = {};
-if (firebaseConfig.apiKey !== "YOUR_API_KEY" && window.firebase) {
-  firebase.initializeApp(firebaseConfig);
-  FB.auth = firebase.auth();
-  FB.db = firebase.firestore();
-  FB.db.enablePersistence({ synchronizeTabs: true }).catch(() => {}); // кэш данных между перезагрузками
-}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
